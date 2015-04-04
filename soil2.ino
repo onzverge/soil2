@@ -1,4 +1,4 @@
-// Guardian of Eden
+// Garden of Eden
 #include <IoTkit.h>    // include IoTkit.h to use the Intel IoT Kit
 #include <Ethernet.h>  // must be included to use IoTkit
 #include <aJSON.h>
