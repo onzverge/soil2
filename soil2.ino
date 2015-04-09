@@ -38,7 +38,7 @@ int del=1000;
 a = analogRead(0); //read the temperature sensor
 resistance=(float)(1023-a)*10000/a; //get the resistance of the sensor;
 temperature=1/(log(resistance/10000)/B+1/298.15)-273.15;//convert to temperature via datasheet ;
-temp = temperature-21; // adjustment for my sensor
+temp = temperature; 
 
 
 
@@ -77,13 +77,13 @@ lcd.print("H1:")+lcd.print(humidityValue1)+lcd.print(" ");
 //lcd.print("AV:")+lcd.print(AverageHumidity)+lcd.print(" ");
 lcd.print("H2:")+lcd.print(humidityValue2);
 
-//LCD shows the temperature
+//LCD shows the temperature C
 lcd.setCursor(0, 1); // set the cursor to column 0, line 0
 lcd.print("T:");
 lcd.print(temp)+lcd.print("C");
 
 //Main loop
-if (AverageHumidity<450) {
+if (AverageHumidity<500) {
 lcd.print("   DRY");
 lcd.setRGB(200, 0, 0); // Red background
 digitalWrite(relayPin, HIGH); // turn relay on (water pump is on)
@@ -92,7 +92,7 @@ delay(30000); //stop loop for 0.5 min.,pump is working for 30 sec.
 Serial.print("Pump is working for 30 sec");
 }
 
-else if (AverageHumidity>=450 && AverageHumidity<700){ // According to web reading between 300 and 600 is OK for plants
+else if (AverageHumidity>=500 && AverageHumidity<800){ // According to web reading between 300 and 600 is OK for plants
 lcd.print(" MOIST");
 lcd.setRGB(0, 254, 0); //Green background
 digitalWrite(relayPin, LOW); // turn relay off:
