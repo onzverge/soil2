@@ -83,7 +83,7 @@ lcd.print("T:");
 lcd.print(temp)+lcd.print("C");
 
 //Main loop
-if (AverageHumidity<500) {
+if (AverageHumidity<600) {
 lcd.print("   DRY");
 lcd.setRGB(200, 0, 0); // Red background
 digitalWrite(relayPin, HIGH); // turn relay on (water pump is on)
@@ -91,8 +91,8 @@ Serial.print("Pump is working");
 delay(30000); //stop loop for 0.5 min.,pump is working for 30 sec.
 Serial.print("Pump is working for 30 sec");
 }
-
-else if (AverageHumidity>=500 && AverageHumidity<800){ // According to web reading between 300 and 600 is OK for plants
+// According to web reading between 300 and 600 is OK for plants.Experient shows that 600 should be a lower limit
+else if (AverageHumidity>=600 && AverageHumidity<800){ 
 lcd.print(" MOIST");
 lcd.setRGB(0, 254, 0); //Green background
 digitalWrite(relayPin, LOW); // turn relay off:
