@@ -67,7 +67,7 @@ Serial.println(AverageHumidity);
 Serial.print("H2:");
 Serial.println(humidityValue2);
 iotkit.send("garden", AverageHumidity);
-//TO DO iotkit.send("temp", temperature);
+iotkit.send("temp", temperature);
   delay(1000);
 
 //LCD shows the humidity of the soil
